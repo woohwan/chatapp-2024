@@ -1,6 +1,6 @@
 import { useState, useEffect }  from 'react';
 import './App.css';
-import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
+import '@chatscope/chat-ui-kit-styles/dist/default/styles.css';
 import {
   MainContainer,
   ChatContainer,
@@ -18,7 +18,8 @@ const App = () => {
       message: "Hello, I'm ChatGPT! Ask me anything!",
       sentTime: "just now",
       sender: "ChatGPT",
-      direction: "incoming"
+      direction: "incoming",
+      position: "first"
     },
   ]);
   const [isTyping, setIsTyping] = useState(false);
@@ -41,6 +42,7 @@ const App = () => {
           message: content,
           direction: 'incoming',
           sender: "ChatGPT",
+          position: "first"
         };
         setMessages((prevMessages) => [...prevMessages, chatGPTResponse]);
       }
