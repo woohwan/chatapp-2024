@@ -82,6 +82,9 @@ const App = () => {
   return (
     <div className="App">
       <div style={{ position:"relative", height: "500px", width: "400px"  }}>
+        <div>
+          <h1>OpenAI Chatbot</h1>
+        </div>
         <MainContainer>
           <ChatContainer>       
             <MessageList 

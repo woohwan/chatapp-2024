@@ -10,4 +10,6 @@ Currently, two official plugins are available:
 참고:
 https://rollbar.com/blog/how-to-integrate-chatgpt-with-react/
 
+React UI에서 곧바로 OpenAI로 Call
+
 *테스트 전 OPENAPI Key를 입력하세요.*
