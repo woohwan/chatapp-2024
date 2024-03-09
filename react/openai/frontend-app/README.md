@@ -9,3 +9,5 @@ Currently, two official plugins are available:
 
 참고:
 https://rollbar.com/blog/how-to-integrate-chatgpt-with-react/
+
+*테스트 전 OPENAPI Key를 입력하세요.*
