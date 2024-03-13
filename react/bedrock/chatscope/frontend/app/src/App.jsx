@@ -24,11 +24,11 @@ const App = () => {
     ])
    
     const accountId = "532805286864"
-    const token = "CC45380CB7656AF3880CF350183E96B7"
+    const token = "F1BE75EA092E1DDE77C576C164CBD62D"
 
 
   // Backend URL: Lambda or API gateway URL
-  const Backend_Url = 'http://localhost:8000/'
+  const Backend_Url = 'https://96ldt801g4.execute-api.ap-northeast-2.amazonaws.com/'
 
   const [isTyping, setIsTyping ] = useState(false)
 
@@ -46,6 +46,7 @@ const App = () => {
     try {
       let response = await processMessageToBackend(message)
       // backend send: { output: { "role": "assistant", "content": completion } }
+      console.log("response: ", response)
       const content = response.output.content
       console.log("content: ", content)
       if (content) {
@@ -77,7 +78,7 @@ const App = () => {
     const response = await fetch(Backend_Url, {
       method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(body)
     })
