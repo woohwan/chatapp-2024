@@ -44,7 +44,7 @@ const Login = (props) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({"userId": userId, "password": password, "mfacode": mfacode})
+            body: JSON.stringify({"userId": userId, "password": password, "mfaCode": mfacode})
         })
         // .then(r => r.json())
         .then(r => {
