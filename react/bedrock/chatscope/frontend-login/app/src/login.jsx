@@ -42,7 +42,7 @@ const Login = (props) => {
     // Log in a user using email and password
     // proxy test: 향후 fitcloud_url 넣을 것
     const logIn = () => {
-        fetch("/api/login", {           
+        fetch(fitcloud_url + "/login", {           
             mode: 'no-cors',
             method: "POST",
             headers: {
