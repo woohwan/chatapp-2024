@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const Login = (props) => {
     const [ userId, setUserId ] = useState('')
     const [ userIdError, setUserIdError] = useState("")
@@ -9,6 +10,8 @@ const Login = (props) => {
     const [ mfacode, setMfacode ] = useState("")
     const [ accountId, setAccountId ] = useState("")
     const [ token, setToken ] = useState("")
+
+    const fitcloud_url = "https://aws-dev.fitcloud.co.kr"
 
     const navigate = useNavigate()
 
@@ -37,16 +40,17 @@ const Login = (props) => {
     }
 
     // Log in a user using email and password
+    // proxy test: 향후 fitcloud_url 넣을 것
     const logIn = () => {
-        fetch("https://aws-dev.fitcloud.co.kr/login/", {
-            method: "POST",
+        fetch("/api/login", {           
             mode: 'no-cors',
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({"userId": userId, "password": password, "mfaCode": mfacode})
         })
-        // .then(r => r.json())
+        .then(r => r.json())
         .then(r => {
             
             if(r.ok === true) {
