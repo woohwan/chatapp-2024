@@ -12,6 +12,7 @@ const Login = (props) => {
     const [ token, setToken ] = useState("")
 
     const fitcloud_url = "https://aws-dev.fitcloud.co.kr"
+    // const fitcloud_url = "http://fitcloud-dev-web-1949357121.ap-northeast-2.elb.amazonaws.com/"
 
     const navigate = useNavigate()
 
@@ -49,13 +50,13 @@ const Login = (props) => {
             },
             body: JSON.stringify({"userId": userId, "password": password, "mfaCode": mfacode})
         })
-        
-        console.log(response)
         // .then(r => r.json())
-        // .then(res => {
-        //     for (let [key, value] of res.headers) {
-        //         console.log(key, value)
-        //     }
+        .then(res => {
+            for (let [key, value] of res.headers) {
+                console.log(key, value)
+            }
+            }
+        )
             // localStorage.setItem("userId", JSON.stringify({userId, accountId: accountId, token: s.sessionId}))
             
             // props.setLoggedIn(true)
