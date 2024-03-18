@@ -41,8 +41,8 @@ const Login = (props) => {
 
     // Log in a user using email and password
     // proxy test: 향후 fitcloud_url 넣을 것
-    const logIn = () => {
-        fetch(fitcloud_url + "/login", {           
+    const logIn = async () => {
+        const response = await fetch(fitcloud_url + "/login", {           
             mode: 'no-cors',
             method: "POST",
             headers: {
@@ -50,23 +50,24 @@ const Login = (props) => {
             },
             body: JSON.stringify({"userId": userId, "password": password, "mfaCode": mfacode})
         })
-        .then(r => r.json())
-        .then(r => {
+        
+        console.log(response)
+        // .then(r => r.json())
+        // .then(res => {
+        //     for (let [key, value] of res.headers) {
+        //         console.log(key, value)
+        //     }
+            // localStorage.setItem("userId", JSON.stringify({userId, accountId: accountId, token: s.sessionId}))
             
-            if(r.ok === true) {
-                localStorage.setItem("userId", JSON.stringify({userId, accountId: accountId, token: r.sessionId}))
-                
-                props.setLoggedIn(true)
-                props.setUserId(userId)
-                props.setAccountId("532805286864")   // 현재 API가 없어 고정 값으로
-                props.setToken(r.sessionId)
-                navigate("/")
-            } else {
-                window.alert("Wrong userid, password or mfa code")
-            }
-        }).catch (err => {
-            console.log(err)
-        })
+            // props.setLoggedIn(true)
+            // props.setUserId(userId)
+            // props.setAccountId("532805286864")   // 현재 API가 없어 고정 값으로
+            // props.setToken(r.sessionId)
+            // navigate("/")
+
+        // }).catch (err => {
+        //     console.log(err)
+        // })
     }
 
     return (
