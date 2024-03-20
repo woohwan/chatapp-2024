@@ -46,7 +46,11 @@ const Login = (props) => {
         const response = await fetch("/login", {           
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Access-Control-Expose-Headers': '*',
+                'Access-Control-Allow-Credentials': true,
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'withCredentials': true,
             },
             body: JSON.stringify({"userId": userId, "password": password, "mfaCode": mfacode})
         })
