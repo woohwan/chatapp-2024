@@ -43,7 +43,7 @@ const Login = (props) => {
     // Log in a user using email and password
     // proxy test: 향후 fitcloud_url 넣을 것
     const logIn = async () => {
-        const response = await fetch(fitcloud_url + "/login", {           
+        const response = await fetch("/login", {           
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
