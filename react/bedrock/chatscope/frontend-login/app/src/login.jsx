@@ -43,22 +43,20 @@ const Login = (props) => {
     // Log in a user using email and password
     // proxy test: 향후 fitcloud_url 넣을 것
     const logIn = async () => {
-        const response = await fetch("/login", {           
+        const response = await fetch( fitcloud_url + "/login", {           
             method: "POST",
+            credentials: "include",
             headers: {
                 'Access-Control-Expose-Headers': '*',
                 'Access-Control-Allow-Credentials': true,
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                'withCredentials': true,
             },
             body: JSON.stringify({"userId": userId, "password": password, "mfaCode": mfacode})
         })
-        // .then(r => r.json())
+        .then(r => r.json())
         .then(res => {
-            for (let [key, value] of res.headers) {
-                console.log(key, value)
-            }
+                console.log(res)
             }
         )
             // localStorage.setItem("userId", JSON.stringify({userId, accountId: accountId, token: s.sessionId}))
